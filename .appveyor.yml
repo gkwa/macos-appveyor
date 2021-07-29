@@ -9,5 +9,5 @@ build_script:
 install:
 - sh: HOMEBREW_NO_AUTO_UPDATE=1 brew install create-dmg
 on_finish:
-- sh: export APPVEYOR_VNC_BLOCK=true
+# - sh: export APPVEYOR_VNC_BLOCK=true
 - sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-vnc.sh' | bash -e -
