@@ -1,14 +1,13 @@
 environment:
-#  APPVEYOR_VNC_BLOCK: true
   APPVEYOR_SSH_BLOCK: true
-  APPVEYOR_SSH_KEY: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFp48yQviDu3U2mGdwv7CO3O84IAj4LJUXzyGbs6mT0q taylor.monacelli@streambox.com"
+  APPVEYOR_SSH_KEY: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFp48yQviDu3U2mGdwv7CO3O84IAj4LJUXzyGbs6mT0q taylor.monacelli@streambox.com
 image:
 - macos-mojave
+init:
+- sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -
 build_script:
 - sh: sleep 1d
 install:
 - sh: HOMEBREW_NO_AUTO_UPDATE=1 brew install create-dmg
 on_finish:
-- sh: sleep 1d
-# - sh: export APPVEYOR_VNC_BLOCK=true
-# - sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-vnc.sh' | bash -e -
+- sh: export APPVEYOR_SSH_BLOCK=true
