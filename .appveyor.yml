@@ -8,7 +8,7 @@ image:
 init:
 - sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -
 build_script:
-- sh: echo I'm a no-op
+- sh: echo I am a no-op script
 install:
 - sh: brew install wget
 - sh: wget --no-clobber -P/tmp https://s3-us-west-2.amazonaws.com/download.streambox.com/updater/smphdosx/latest/StreamboxMPHD-OSX.dmg
