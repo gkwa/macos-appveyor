@@ -1,5 +1,6 @@
 environment:
   APPVEYOR_SSH_BLOCK: true
+  APPVEYOR_VNC_BLOCK: true
   APPVEYOR_SSH_KEY: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFp48yQviDu3U2mGdwv7CO3O84IAj4LJUXzyGbs6mT0q taylor.monacelli@streambox.com
 image:
 - macos-mojave
@@ -11,4 +12,4 @@ install:
 - sh: hdid ~/Downloads/StreamboxMPHD-OSX.dmg
 - sh: sudo installer -target / -pkg /Volumes/StreamboxMPHD-OSX/StreamboxMPHD-OSX-v3.165.05.pkg
 on_finish:
-- sh: export APPVEYOR_SSH_BLOCK=true
+- sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-vnc.sh' | bash -e -
