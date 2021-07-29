@@ -1,9 +1,9 @@
 environment:
   APPVEYOR_VNC_BLOCK: true
+
 image:
 - macos-mojave
 build_script:
-
 - sh: sleep 1d
 install:
 - sh: HOMEBREW_NO_AUTO_UPDATE=1 brew install create-dmg
