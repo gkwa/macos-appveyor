@@ -9,8 +9,8 @@ init:
 - sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -
 install:
 - sh: brew install wget
-- sh: wget --no-clobber -P~/Downloads https://s3-us-west-2.amazonaws.com/download.streambox.com/updater/smphdosx/latest/StreamboxMPHD-OSX.dmg
-- sh: hdid ~/Downloads/StreamboxMPHD-OSX.dmg
+- sh: wget --no-clobber -P/tmp https://s3-us-west-2.amazonaws.com/download.streambox.com/updater/smphdosx/latest/StreamboxMPHD-OSX.dmg
+- sh: hdid /tmp/StreamboxMPHD-OSX.dmg
 - sh: sudo installer -target / -pkg /Volumes/StreamboxMPHD-OSX/StreamboxMPHD-OSX-v3.165.05.pkg
 on_finish:
 - sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-vnc.sh' | bash -e -
