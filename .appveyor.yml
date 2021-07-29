@@ -5,9 +5,10 @@ image:
 - macos-mojave
 init:
 - sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -
-build_script:
-- sh: sleep 1d
 install:
-- sh: HOMEBREW_NO_AUTO_UPDATE=1 brew install create-dmg
+- sh: brew install wget
+- sh: wget --no-clobber -P~/Downloads https://s3-us-west-2.amazonaws.com/download.streambox.com/updater/smphdosx/latest/StreamboxMPHD-OSX.dmg
+- sh: hdid ~/Downloads/StreamboxMPHD-OSX.dmg
+- sh: sudo installer -target / -pkg /Volumes/StreamboxMPHD-OSX/StreamboxMPHD-OSX-v3.165.05.pkg
 on_finish:
 - sh: export APPVEYOR_SSH_BLOCK=true
